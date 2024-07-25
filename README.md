@@ -15,3 +15,19 @@ example this one https://github.com/SeleniumHQ) using github API
   a. How many total open issues are there across all repositories?
   b. Sort the repositories by date updated in descending order.
   c. Which repository has the most watchers?
+
+
+
+ANSWER ASSIGNMENTS:
+- ASSIGNMENT 1:
+-   Using Java, Selenium, TestNG frameworks
+-   Using extendreports: export html report in reports folder
+-   Using Log4j to wirte log in console for tracing
+-   Using WebDroverManager to manage different browsers with versions
+-   Page Object model, Page Factory
+
+-   CLIP DEMO: https://drive.google.com/file/d/12klFfYpSDlFs3IOOq4lIpIRQ6rDCGWdT/view?usp=sharing
+
+- ASSIGNMENT 3: Using Python code with requests library to call to Github API: selenium
+  Process the response then print the result as request -> Folder Assigment 3:
+  ![image](https://github.com/user-attachments/assets/3d142beb-bce4-4eb1-989f-17ea0f3043be)
