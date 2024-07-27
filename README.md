@@ -46,6 +46,8 @@ HOW TO RUN THE 2 test cases above by command line:
 
 
 
-ASSIGNMENT 3: Using Python code with requests library to call to Github API: selenium
-  Process the response then print the result as request -> Folder Assigment 3:
+ASSIGNMENT 3: Using Python code with requests library to call to Github API: SeleniumHQ page
+
+  Process the data of response then print the result as request -> Folder Assigment 3: result of running below
+  
   ![image](https://github.com/user-attachments/assets/3d142beb-bce4-4eb1-989f-17ea0f3043be)
