@@ -20,13 +20,26 @@ example this one https://github.com/SeleniumHQ) using github API
 
 ANSWER ASSIGNMENTS:
 - ASSIGNMENT 1:
--   Using Java, Selenium, TestNG frameworks
--   Using extendreports: export html report in reports folder
--   Using Log4j to wirte log in console for tracing
--   Using WebDroverManager to manage different browsers with versions
--   Page Object model, Page Factory
+              -   Using Java, Selenium, TestNG frameworks
+              -   Using extendreports: export html report in reports folder
+              -   Using Log4j to wirte log in console for tracing
+              -   Using WebDroverManager to manage different browsers with versions
+              -   Page Object model, Page Factory
+              
+              -   CLIP DEMO: https://drive.google.com/file/d/12klFfYpSDlFs3IOOq4lIpIRQ6rDCGWdT/view?usp=sharing
 
--   CLIP DEMO: https://drive.google.com/file/d/12klFfYpSDlFs3IOOq4lIpIRQ6rDCGWdT/view?usp=sharing
+- ASSIGNMENT 2:
+              - Using Selenium Grid: Hub - Node mode, 1 selenium hub + 2 chrome node (User A and provider)
+              - Using VNC Viewer to view the virtual chrome actions
+             
+              - CLIP DEMO: https://drive.google.com/file/d/1iVwTkQCNoLNyd-WagkO3Rz2YUJ-8H7Uy/view?usp=drive_link
+ 
+
+HOW TO RUN THE 2 test cases above by command line:
+1. Pull the repository
+2. Using command: mvn test (to run the assignment 1)
+3. Using command: mvn test -Dtest=SeleniumGrid (to run test class assignment 2)
+
 
 - ASSIGNMENT 3: Using Python code with requests library to call to Github API: selenium
   Process the response then print the result as request -> Folder Assigment 3:
