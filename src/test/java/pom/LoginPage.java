@@ -9,11 +9,19 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+/*
+     PAGE OBJECT MODEL: LOGIN PAGE
+        it contains all elements of page and action on that elements.
+ */
+
 public class LoginPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
-    // Page elements
+
+    /*
+        This part is xpath of element of page
+     */
     private By usernameField = By.xpath("//input[@id='AppUserUsername']");
     private By passwordField = By.xpath("//input[@id='AppUserPassword']");
     private By loginButton = By.xpath("//button[@id='btnSignIn']");
@@ -25,7 +33,9 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    // Actions
+    /*
+        Define action for element
+     */
     public void enterUsername(String username) {
         WebElement usernameInput = wait.until(ExpectedConditions.visibilityOfElementLocated(usernameField));
         usernameInput.sendKeys(username);
@@ -41,6 +51,7 @@ public class LoginPage {
         loginBtn.click();
     }
 
+    //Login function
     public void loginWithUsernameAndPassword(String username, String password){
         enterUsername(username);
         enterPassword(password);

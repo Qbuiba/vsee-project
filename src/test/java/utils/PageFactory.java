@@ -5,6 +5,9 @@ import pom.VisitPage;
 import pom.LoginPage;
 import pom.ProviderPage;
 
+/*
+    PRODUCE THE WEB DRIVER
+ */
 public class PageFactory {
     public static VisitPage getVisitPage(WebDriver driver) {
         return new VisitPage(driver);

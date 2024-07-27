@@ -15,21 +15,24 @@ import utils.ExtentReportListener;
 
 import java.time.Duration;
 
+/*
+     PAGE OBJECT MODEL: VISIT PAGE (Guest enter the meeting room)
+        it contains all elements of page and action on that elements.
+ */
 public class VisitPage {
     private WebDriver driver;
     private WebDriverWait wait;
     private static final Logger logger = LoggerFactory.getLogger(VisitPage.class);
 
-    // Page elements
+    /*
+    This part is xpath of element of page
+    */
     private By enterWaitingRoomButton = By.xpath("//input[@value='Enter Waiting Room']");
     private By firstNameInput = By.xpath("//input[@name='first_name']");
     private By reasonForVisitTextarea = By.xpath("//textarea[@name='reason_for_visit']");
     private By consentCheckbox = By.xpath("//input[@id='jsonform-1-elt-consent']");
-    private By reminderModalButton = By.xpath("//div[@id='ReminderModal']/div/div/div[3]/button[@data-action='reminder-btn-clicked']");
     private By forProviderLink = By.xpath("//a[text()='For Providers']");
     private By enableButton = By.xpath("//div[text()='Text me when the provider is ready']");
-    private By toolBoxMenu = By.xpath("//div[@id=\"new-toolbox\"]");
-    private By joinNowButton = By.xpath("//div[@data-testid='prejoin.screen']/div/div");
     private By messageBubble = By.xpath("//div[@class=\"webchat-message-bubble\"]");
 
     // Constructor
@@ -81,11 +84,6 @@ public class VisitPage {
     public void waitEnableButtonToBeVisible() {
         logger.info("Waiting for 'Text me when the provider is ready' button to be visible");
         wait.until(ExpectedConditions.visibilityOfElementLocated(enableButton));
-    }
-
-    public void waitToolBoxMenuToBeVisible() {
-        logger.info("Waiting for tool box menu to be visible");
-        wait.until(ExpectedConditions.visibilityOfElementLocated(toolBoxMenu));
     }
 
     public void validateChatMessage() {

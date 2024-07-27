@@ -9,18 +9,28 @@ import org.slf4j.LoggerFactory;
 
 import java.time.Duration;
 
+
+/*
+     PAGE OBJECT MODEL: PROVIDER PAGE (After logged in)
+        it contains all elements of page and action on that elements.
+ */
+
 public class ProviderPage {
     private WebDriver driver;
     private WebDriverWait wait;
 
     private static final Logger logger = LoggerFactory.getLogger(ProviderPage.class);
 
-    // Page elements
+    /*
+        This part is xpath of element of page
+     */
     private By readdyForVisitsHeading = By.xpath("//h4[contains(text(), 'Ready for Visits')]");
     private By callButton = By.xpath("//a[@title='Call']");
     private By chatButton = By.xpath("//div[@id='new-toolbox']/div/div/div/div[4]/div");
     private By chatBoxInput = By.xpath("//div[contains(@id, 'visit_chat-conference-talk-vsee-com')]/div[2]/div[2]/form/input[@placeholder=\"Type your message here\"]");
     private By iframeLocator = By.xpath("//iframe[@id='jitsiConferenceFrame0']"); // Change to the correct iframe locator
+
+    private By syncTimezoneButton = By.xpath("//*[@id='sync-timezone']/div/div/div[3]/button[2]");
 
     // Constructor
     public ProviderPage(WebDriver driver) {
@@ -28,6 +38,10 @@ public class ProviderPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         PageFactory.initElements(driver, this);
     }
+
+    /*
+        Define action for element
+     */
 
     public void switchToIframe() {
         WebElement iframe = wait.until(ExpectedConditions.visibilityOfElementLocated(iframeLocator));
@@ -65,5 +79,14 @@ public class ProviderPage {
         chatBtn.click();
     }
 
-
+    public void checkAndClickSyncTimezoneButton() {
+        try {
+            WebElement syncTimezoneBtn = wait.withTimeout(Duration.ofSeconds(10))
+                    .until(ExpectedConditions.visibilityOfElementLocated(syncTimezoneButton));
+            logger.info("Sync timezone button found. Clicking on it.");
+            syncTimezoneBtn.click();
+        } catch (TimeoutException e) {
+            logger.info("Sync timezone button not found within 10 seconds. Ignoring it.");
+        }
+    }
 }

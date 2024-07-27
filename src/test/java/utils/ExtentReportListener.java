@@ -9,6 +9,10 @@ import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
+/*
+    THIS CLASS IS USED TO LISTENING ALL EVENT WHEN RUNNING TEST AND LOGGING
+ */
+
 public class ExtentReportListener implements ITestListener {
     private static ExtentReports extent;
     private static ExtentTest test;

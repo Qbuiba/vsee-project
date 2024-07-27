@@ -1,20 +1,20 @@
 package test;
 
 import config.TestConfig;
-import pom.ProviderPage;
-import pom.LoginPage;
-import pom.VisitPage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import pom.LoginPage;
+import pom.ProviderPage;
+import pom.VisitPage;
 import utils.PageFactory;
 import utils.WebDriverSetup;
 
 
-public class SeleniumTest {
-    private WebDriver chromeDriver;
-    private WebDriver edgeDriver;
+public class SeleniumGrid {
+    private WebDriver chromeDriver1;
+    private WebDriver chromeDriver2;
     private VisitPage userAPage;
     private VisitPage userBPage;
     private LoginPage LoginPage;
@@ -23,7 +23,8 @@ public class SeleniumTest {
 
     @BeforeMethod
     public void setUp() {
-        chromeDriver = WebDriverSetup.getChromeDriver();
+        chromeDriver1 = WebDriverSetup.getChromeDriverGrid();
+        chromeDriver2 = WebDriverSetup.getChromeDriverGrid();
     }
 
     @Test
@@ -34,9 +35,9 @@ public class SeleniumTest {
             2-Input username, description, consent checkbox
             3-Click enter waiting room
          */
-        chromeDriver.get(TestConfig.ROOM_URL);
-        assert chromeDriver.getTitle().equals(TestConfig.EXPECTED_TITLE);
-        userAPage = PageFactory.getVisitPage(chromeDriver);
+        chromeDriver1.get(TestConfig.ROOM_URL);
+        assert chromeDriver1.getTitle().equals(TestConfig.EXPECTED_TITLE);
+        userAPage = PageFactory.getVisitPage(chromeDriver1);
         userAPage.joinWaitingRoom("User A", "dental appointment");
         userAPage.waitEnableButtonToBeVisible();
         /*
@@ -45,12 +46,12 @@ public class SeleniumTest {
             2-Click "For Provider" link
             3-Login with username and password
          */
-        edgeDriver = WebDriverSetup.getEdgeDriver();
-        edgeDriver.get(TestConfig.ROOM_URL);
-        assert edgeDriver.getTitle().equals(TestConfig.EXPECTED_TITLE);
-        userBPage = PageFactory.getVisitPage(edgeDriver);
+
+        chromeDriver2.get(TestConfig.ROOM_URL);
+        assert chromeDriver2.getTitle().equals(TestConfig.EXPECTED_TITLE);
+        userBPage = PageFactory.getVisitPage(chromeDriver2);
         userBPage.clickForProviders();
-        LoginPage = PageFactory.getLoginPage(edgeDriver);
+        LoginPage = PageFactory.getLoginPage(chromeDriver2);
         LoginPage.loginWithUsernameAndPassword(TestConfig.USERNAME, TestConfig.PASSWORD);
         /*
             After login, provider actions:
@@ -58,7 +59,7 @@ public class SeleniumTest {
             2-Toggle the chat box
             3-Send message to User A
          */
-        providerPage = PageFactory.getProviderPage(edgeDriver);
+        providerPage = PageFactory.getProviderPage(chromeDriver2);
         providerPage.checkAndClickSyncTimezoneButton();
         providerPage.waitReadyForVisitsToBeVisible();
         providerPage.clickCallButton();
@@ -74,6 +75,6 @@ public class SeleniumTest {
 
     @AfterMethod
     public void tearDown() {
-        WebDriverSetup.tearDown(chromeDriver, edgeDriver);
+        WebDriverSetup.tearDown(chromeDriver1, chromeDriver2);
     }
 }
