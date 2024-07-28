@@ -42,7 +42,9 @@ public class VisitPage {
         PageFactory.initElements(driver, this);
     }
 
-    // Actions
+    /*
+       Define action for element
+    */
     public void clickEnterWaitingRoom() {
         logger.info("Waiting for 'Enter Waiting Room' button to be visible");
         WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(enterWaitingRoomButton));

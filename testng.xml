@@ -6,6 +6,7 @@
     <test name="Test">
         <classes>
             <class name="test.SeleniumTest"/>
+            <class name="test.SeleniumGrid"/>
         </classes>
     </test>
 </suite>

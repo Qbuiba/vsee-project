@@ -41,7 +41,7 @@ public class SeleniumGrid {
         userAPage.joinWaitingRoom("User A", "dental appointment");
         userAPage.waitEnableButtonToBeVisible();
         /*
-            Provider actions in Edge browser:
+            Provider actions in Chrome browser:
             1-Go to robin4 url
             2-Click "For Provider" link
             3-Login with username and password
@@ -68,7 +68,7 @@ public class SeleniumGrid {
         providerPage.switchToDefaultContent();
         providerPage.sendChatMessage("hello world");
         /*
-            Validate that User A get correct message
+            Validate that User get correct message
          */
         userAPage.validateChatMessage();
     }
