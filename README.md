@@ -39,7 +39,7 @@ ANSWER ASSIGNMENTS:
 
 HOW TO RUN THE 2 test cases above by command line:
 1. Pull the repository
-2. Using command: mvn test (to run the assignment 1)
+2. Using command: mvn test -Dtest=SeleniumTest (to run test class assignment 1)
 3. Using command: mvn test -Dtest=SeleniumGrid (to run test class assignment 2)
 
 
